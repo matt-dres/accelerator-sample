@@ -1,0 +1,34 @@
+accelerator:
+  displayName: Simple Accelerator
+  description: Contains just a README
+  iconUrl: https://i.kym-cdn.com/entries/icons/original/000/020/802/dexter.jpg
+  tags:
+    - simple
+    - getting-started
+  options:
+    - name: firstConfigurableParameter
+      inputType: text
+      label: The text used to replace the placeholder text in the README.md. Converted to lowercase
+      defaultValue: Configurable Parameter 1
+      required: true
+    - name: secondConfigurableParameterCheckbox
+      inputType: checkbox
+      label: Enable to configure the second configurable parameter, otherwise use the default value
+    - name: secondConfigurableParameter
+      inputType: text
+      label: The text used to replace the placeholder text in the README.md. Converted to lowercase
+      defaultValue: Configurable Parameter 2
+      required: true
+
+engine:
+  merge:
+    - include: ["README.md"]
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: <CONFIGURABLE_PARAMETER_1>
+              with: "#firstConfigurableParameter.toLowerCase()"
+    - type: ReplaceText
+      substitutions:
+        - text: <CONFIGURABLE_PARAMETER_2>
+          with: "#secondConfigurableParameter.toLowerCase()"
