@@ -13,6 +13,7 @@ accelerator:
       required: true
     - name: secondConfigurableParameterCheckbox
       inputType: checkbox
+      dataType: boolean
       label: Enable to configure the second configurable parameter, otherwise use the default value
     - name: secondConfigurableParameter
       inputType: text
