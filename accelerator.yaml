@@ -19,16 +19,20 @@ accelerator:
       label: The text used to replace the placeholder text in the README.md. Converted to lowercase
       defaultValue: Configurable Parameter 2
       required: true
+      dependsOn: 
+        name: secondConfigurableParameterCheckbox
 
 engine:
   merge:
-    - include: ["README.md"]
+    - include: [ "README.md" ]
       chain:
         - type: ReplaceText
+          condition: "#firstConfigurableParameter"
           substitutions:
-            - text: <CONFIGURABLE_PARAMETER_1>
+            - text: "<CONFIGURABLE_PARAMETER_1>"
               with: "#firstConfigurableParameter.toLowerCase()"
-    - type: ReplaceText
-      substitutions:
-        - text: <CONFIGURABLE_PARAMETER_2>
-          with: "#secondConfigurableParameter.toLowerCase()"
+        - type: ReplaceText
+          condition: "#secondConfigurableParameterCheckbox"
+          substitutions:
+            - text: "<CONFIGURABLE_PARAMETER_2>"
+              with: "#secondConfigurableParameter.toLowerCase()"
