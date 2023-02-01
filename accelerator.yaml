@@ -24,9 +24,9 @@ accelerator:
         name: secondConfigurableParameterCheckbox
 
 engine:
-  merge:
+  chain:
     - include: [ "README.md" ]
-      chain:
+      merge:
         - type: ReplaceText
           condition: "#firstConfigurableParameter"
           substitutions:
