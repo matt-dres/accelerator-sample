@@ -33,7 +33,7 @@ engine:
             - text: "<CONFIGURABLE_PARAMETER_1>"
               with: "#firstConfigurableParameter.toLowerCase()"
         - type: ReplaceText
-          condition: "#secondConfigurableParameterCheckbox"
+          condition: "#secondConfigurableParameter"
           substitutions:
             - text: "<CONFIGURABLE_PARAMETER_2>"
               with: "#secondConfigurableParameter.toLowerCase()"
