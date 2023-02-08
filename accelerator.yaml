@@ -24,13 +24,13 @@ accelerator:
         name: secondConfigurableParameterCheckbox
 
 engine:
-  chain:
+  merge:
     - include: [ "README.md" ]
-      merge:
+      chain:
         - type: ReplaceText
           substitutions:
             - text: "<CONFIGURABLE_PARAMETER_1>"
-              with: "#firstConfigurableParameter.toLowerCase()"
+              with: "#firstConfigurableParameter.invalidFunction"
         - condition: "#secondConfigurableParameterCheckbox"
           chain:
           - type: ReplaceText
